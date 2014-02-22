@@ -29,5 +29,5 @@ herbst.keybind(key([mod, 'Tab'], 'cycle'));
 
 herbst.keybind(key(['Mod1', 'F2'], 'spawn chromium'));
 
-herbst.default_frame_layout(2);
+herbst.default_frame_layout = 2;
 
