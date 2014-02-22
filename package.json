@@ -1,0 +1,7 @@
+{
+    "name": "herbstjs",
+    "author": "Armen138",
+    "dependencies": {
+        "harmony-reflect": "*"
+    }
+}
