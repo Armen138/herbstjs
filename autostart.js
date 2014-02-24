@@ -34,6 +34,12 @@ herbst.keybind(key([mod, 'Shift', 'Right'], 'resize right +0.05'));
 herbst.keybind(key([mod, 'Shift', 'Left'], 'resize left +0.05'));
 herbst.keybind(key([mod, 'Shift', 'Up'], 'resize up +0.05'));
 herbst.keybind(key([mod, 'Shift', 'Down'], 'resize down +0.05'));
+
+herbst.keybind(key([alt, 'Ctrl', 'Right'], 'shift right'));
+herbst.keybind(key([alt, 'Ctrl', 'Left'], 'shift left'));
+herbst.keybind(key([alt, 'Ctrl', 'Up'], 'shift up'));
+herbst.keybind(key([alt, 'Ctrl', 'Down'], 'shift down'));
+
 herbst.keybind(key([alt, 'F1'], 'spawn urxvt'));
 herbst.keybind(key([alt, 'F2'], 'spawn gmrun'));
 herbst.keybind(key([alt, 'F3'], 'spawn dwb'));
