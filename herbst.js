@@ -1,9 +1,10 @@
 #!/usr/bin/node --harmony
 
 //nodejs herbstclient client client.
+var events = require('events');
 var Reflect = require('harmony-reflect');
 var spawn = require('child_process').spawn;
-var Herbst = function() {
+var Herbst = function(wm) {
     var herbst = {
         raw: function(command, callback) {
             var client = spawn('herbstclient', command.split(' '));
@@ -31,11 +32,25 @@ var Herbst = function() {
             herbst.raw('set ' + name + ' ' + value);
         }
     });
+    Herbst.wm = function(callback) {
+        var wm = new events.EventEmitter();
+        var hooks = spawn('herbstclient', ['--idle']);
+        hooks.stdout.on('data', function(data) {
+            var lines = ('' + data).split('\n');
+            for(var i = 0; i < lines.length; i++) {
+                var info = lines[i].split('\t');
+                if(info[0] !== '') {
+                    wm.emit.apply(wm, info);
+                }
+            }
+
+        });
+        hooks.on('error', function(err) {});
+        hooks.on('close', function(code) {});
+        callback(wm);
+    };
+
     return herbstProxy;
 };
-
-//var herbst = new Herbst();
-
-//herbst.focus('right', function(data) { console.log(data); });
 
 module.exports = Herbst;
